@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.rmgx.myapp",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "monolith",
+    "baseName": "myApp",
+    "packageName": "com.rmgx.myapp",
+    "packageFolder": "com/rmgx/myapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2ZhZWVlZjJhYzkyODAxNWZlNThjM2RjNzQ1YjIyZDEyN2M3YmI2ZDJiZmJkMmFlYTE4ZWM5YTZhMTNhNzU2ZGZlNjU2MDRlNmZiMDQwNDU2NzZiOTBlZmM2YmYyOWUyZThlOGIzZGZlMzc0NjU1ZmI3NmZiNzFiYmZiOWExYmM=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ]
+  }
+}
