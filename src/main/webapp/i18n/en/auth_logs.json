@@ -1,0 +1,27 @@
+{
+    "myApp": {
+        "auth_logs": {
+            "home": {
+                "title": "Auth Logs",
+                "createLabel": "Create a new Auth Logs",
+                "createOrEditLabel": "Create or edit a Auth Logs"
+            },
+            "created": "A new Auth Logs is created with identifier {{ param }}",
+            "updated": "A Auth Logs is updated with identifier {{ param }}",
+            "deleted": "A Auth Logs is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Auth Logs {{ id }}?"
+            },
+            "detail": {
+                "title": "Auth Logs"
+            },
+            "user_id": "User Id",
+            "ip_address": "Ip Address",
+            "device": "Device",
+            "location": "Location",
+            "user_agent": "User Agent",
+            "auth_type": "Auth Type",
+            "device_status": "Device Status"
+        }
+    }
+}

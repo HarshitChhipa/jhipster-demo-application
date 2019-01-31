@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="auth_logs">
+            <h2><span jhiTranslate="myApp.auth_logs.detail.title">Auth Logs</span> {{auth_logs.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myApp.auth_logs.user_id">User Id</span></dt>
+                <dd>
+                    <span>{{auth_logs.user_id}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.ip_address">Ip Address</span></dt>
+                <dd>
+                    <span>{{auth_logs.ip_address}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.device">Device</span></dt>
+                <dd>
+                    <span>{{auth_logs.device}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.location">Location</span></dt>
+                <dd>
+                    <span>{{auth_logs.location}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.user_agent">User Agent</span></dt>
+                <dd>
+                    <span>{{auth_logs.user_agent}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.auth_type">Auth Type</span></dt>
+                <dd>
+                    <span>{{auth_logs.auth_type}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.auth_logs.device_status">Device Status</span></dt>
+                <dd>
+                    <span>{{auth_logs.device_status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/auth-logs', auth_logs.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

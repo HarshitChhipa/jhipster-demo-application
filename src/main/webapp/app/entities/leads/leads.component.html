@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="myApp.leads.home.title">Leads</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-leads" [routerLink]="['/leads/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="myApp.leads.home.createLabel">
+            Create new Leads
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="leads">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="myApp.leads.salutation">Salutation</span></th>
+            <th><span jhiTranslate="myApp.leads.fullName">Full Name</span></th>
+            <th><span jhiTranslate="myApp.leads.firstName">First Name</span></th>
+            <th><span jhiTranslate="myApp.leads.lastName">Last Name</span></th>
+            <th><span jhiTranslate="myApp.leads.dateOfBirth">Date Of Birth</span></th>
+            <th><span jhiTranslate="myApp.leads.emailAddress">Email Address</span></th>
+            <th><span jhiTranslate="myApp.leads.homePhone">Home Phone</span></th>
+            <th><span jhiTranslate="myApp.leads.workPhone">Work Phone</span></th>
+            <th><span jhiTranslate="myApp.leads.cellPhone">Cell Phone</span></th>
+            <th><span jhiTranslate="myApp.leads.gender">Gender</span></th>
+            <th><span jhiTranslate="myApp.leads.type">Type</span></th>
+            <th><span jhiTranslate="myApp.leads.preferredCommsMode">Preferred Comms Mode</span></th>
+            <th><span jhiTranslate="myApp.leads.stage">Stage</span></th>
+            <th><span jhiTranslate="myApp.leads.status">Status</span></th>
+            <th><span jhiTranslate="myApp.leads.leadInterest">Lead Interest</span></th>
+            <th><span jhiTranslate="myApp.leads.leadQualityScore">Lead Quality Score</span></th>
+            <th><span jhiTranslate="myApp.leads.assignedTo">Assigned To</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let leads of leads ;trackBy: trackId">
+                <td><a [routerLink]="['/leads', leads.id, 'view' ]">{{leads.id}}</a></td>
+                <td>{{leads.salutation}}</td>
+                <td>{{leads.fullName}}</td>
+                <td>{{leads.firstName}}</td>
+                <td>{{leads.lastName}}</td>
+                <td>{{leads.dateOfBirth}}</td>
+                <td>{{leads.emailAddress}}</td>
+                <td>{{leads.homePhone}}</td>
+                <td>{{leads.workPhone}}</td>
+                <td>{{leads.cellPhone}}</td>
+                <td>{{leads.gender}}</td>
+                <td>{{leads.type}}</td>
+                <td>{{leads.preferredCommsMode}}</td>
+                <td>{{leads.stage}}</td>
+                <td>{{leads.status}}</td>
+                <td>{{leads.leadInterest}}</td>
+                <td>{{leads.leadQualityScore}}</td>
+                <td>{{leads.assignedTo}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/leads', leads.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/leads', leads.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'leads/'+ leads.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-auth-logs-heading" jhiTranslate="myApp.auth_logs.home.createOrEditLabel">Create or edit a Auth Logs</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!auth_logs.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="auth_logs.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.user_id" for="field_user_id">User Id</label>
+                    <input type="number" class="form-control" name="user_id" id="field_user_id"
+                        [(ngModel)]="auth_logs.user_id" required/>
+                    <div [hidden]="!(editForm.controls.user_id?.dirty && editForm.controls.user_id?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user_id?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.user_id?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.ip_address" for="field_ip_address">Ip Address</label>
+                    <input type="text" class="form-control" name="ip_address" id="field_ip_address"
+                        [(ngModel)]="auth_logs.ip_address" required/>
+                    <div [hidden]="!(editForm.controls.ip_address?.dirty && editForm.controls.ip_address?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.ip_address?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.device" for="field_device">Device</label>
+                    <input type="text" class="form-control" name="device" id="field_device"
+                        [(ngModel)]="auth_logs.device" required/>
+                    <div [hidden]="!(editForm.controls.device?.dirty && editForm.controls.device?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.device?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.location" for="field_location">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                        [(ngModel)]="auth_logs.location" required/>
+                    <div [hidden]="!(editForm.controls.location?.dirty && editForm.controls.location?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.location?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.user_agent" for="field_user_agent">User Agent</label>
+                    <input type="text" class="form-control" name="user_agent" id="field_user_agent"
+                        [(ngModel)]="auth_logs.user_agent" required/>
+                    <div [hidden]="!(editForm.controls.user_agent?.dirty && editForm.controls.user_agent?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user_agent?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.auth_type" for="field_auth_type">Auth Type</label>
+                    <input type="text" class="form-control" name="auth_type" id="field_auth_type"
+                        [(ngModel)]="auth_logs.auth_type" required/>
+                    <div [hidden]="!(editForm.controls.auth_type?.dirty && editForm.controls.auth_type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.auth_type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.auth_logs.device_status" for="field_device_status">Device Status</label>
+                    <input type="text" class="form-control" name="device_status" id="field_device_status"
+                        [(ngModel)]="auth_logs.device_status" required/>
+                    <div [hidden]="!(editForm.controls.device_status?.dirty && editForm.controls.device_status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.device_status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

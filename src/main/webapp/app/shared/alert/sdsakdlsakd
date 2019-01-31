@@ -1,0 +1,68 @@
+                /**
+                 * Main routing file for the application
+                 *
+                 * @since  15-Aug-2018
+                 * @author  developers@expedien.in
+                 */
+
+                import {NgModule} from '@angular/core';
+                import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+                import {DEBUG_INFO_ENABLED} from '@app/app.constants';
+                import {DashboardComponent} from "@app/modules/global/dashboard/pages/dashboard/dashboard.component";
+                import {DASHBOARD_ROUTES} from "@app/modules/global/dashboard/dashboard.route";
+                import {APP_AUTH_ROUTES} from "@app/modules/global/auth/auth.route";
+                import {USERPROFILE_ROUTES} from "@app/modules/user-profile/user-profile.route";
+                import {APP_SIGNUP_ROUTES} from "@app/modules/global/signup/signup.route";
+
+                // The app routes .
+                const APP_ROUTES: Routes = [
+
+                    //  Global Modules
+
+                    // {path: '', loadChildren: './modules/global/auth/auth.module#AppAuthModule'},
+                    {path: '', children: APP_AUTH_ROUTES},
+
+                    // {path: '', loadChildren: './modules/user-profile/user-profile.module#AppAccountModule'},
+                    {path: '', children: USERPROFILE_ROUTES},
+
+
+                    // {path: 'signup', loadChildren: './modules/global/signup/signup.module#AppSignUpModule'},
+                    {path: 'signup', children: APP_SIGNUP_ROUTES},
+
+                    {path: 'onboarding', loadChildren: './modules/global/onboarding/onboarding.module#AppOnboardingModule'},
+
+
+                    {path: 'dashboard', loadChildren: './modules/global/dashboard/dashboard.module#AppDashboardModule'},
+                    // {path: 'dashboard', children: DASHBOARD_ROUTES},
+
+                    // Functional Modules
+                    {path: 'leads', loadChildren: './modules/leads-mgmt/leads-management.module#LeadsMgmtModule'},
+                    {path: 'leasing', loadChildren: './modules/leasing/leasing.module#LeasingModule'},
+                    {path: 'property', loadChildren: './modules/property-mgmt/property-management.module#PropertyManagementModule'},
+                    {path: 'residents', loadChildren: './modules/resident-mgmt/resident-mgmt.module#ResidentMgmtModule'},
+                    {path: 'accounting', loadChildren: './modules/accounting/accounting.module#AccountingModule'},
+                    {path: 'property/purchasing', loadChildren: './modules/purchasing/purchasing.module#PurchasingModule'},
+                    {path: 'property/inventory', loadChildren: './modules/inventory/inventory-module.module#InventoryModule'},
+                    {path: 'reports', loadChildren: './modules/reports/reports.module#ReportsModule'},
+                    {path: 'payment', loadChildren: './modules/payment/payment.module#PaymentModule'},
+
+                    // Admin Modules
+                    {path: 'admin/system', loadChildren: './modules/admin/system/systems.module#SystemsModule'},
+                    {path: 'admin/manage', loadChildren: './modules/admin/manage/manage.module#ManageModule'},
+                    {path: '', pathMatch: 'full', redirectTo: '/dashboard'}
+                ];
+
+                @NgModule({
+                    imports: [
+                        RouterModule.forRoot(APP_ROUTES, {
+                            useHash: false,
+                            enableTracing: DEBUG_INFO_ENABLED,
+                            onSameUrlNavigation: 'ignore',
+                            scrollPositionRestoration: 'enabled',
+                            preloadingStrategy: PreloadAllModules
+                        })
+                    ],
+                    exports: [RouterModule]
+                })
+                export class AppRoutingModule {
+                }

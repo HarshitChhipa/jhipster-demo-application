@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="leads">
+            <h2><span jhiTranslate="myApp.leads.detail.title">Leads</span> {{leads.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="myApp.leads.salutation">Salutation</span></dt>
+                <dd>
+                    <span>{{leads.salutation}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{leads.fullName}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{leads.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{leads.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{leads.dateOfBirth}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.emailAddress">Email Address</span></dt>
+                <dd>
+                    <span>{{leads.emailAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.homePhone">Home Phone</span></dt>
+                <dd>
+                    <span>{{leads.homePhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.workPhone">Work Phone</span></dt>
+                <dd>
+                    <span>{{leads.workPhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.cellPhone">Cell Phone</span></dt>
+                <dd>
+                    <span>{{leads.cellPhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.gender">Gender</span></dt>
+                <dd>
+                    <span>{{leads.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.type">Type</span></dt>
+                <dd>
+                    <span>{{leads.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.preferredCommsMode">Preferred Comms Mode</span></dt>
+                <dd>
+                    <span>{{leads.preferredCommsMode}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.stage">Stage</span></dt>
+                <dd>
+                    <span>{{leads.stage}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.status">Status</span></dt>
+                <dd>
+                    <span>{{leads.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.leadInterest">Lead Interest</span></dt>
+                <dd>
+                    <span>{{leads.leadInterest}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.leadQualityScore">Lead Quality Score</span></dt>
+                <dd>
+                    <span>{{leads.leadQualityScore}}</span>
+                </dd>
+                <dt><span jhiTranslate="myApp.leads.assignedTo">Assigned To</span></dt>
+                <dd>
+                    <span>{{leads.assignedTo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/leads', leads.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

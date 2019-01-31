@@ -1,0 +1,37 @@
+{
+    "myApp": {
+        "leads": {
+            "home": {
+                "title": "Leads",
+                "createLabel": "Create a new Leads",
+                "createOrEditLabel": "Create or edit a Leads"
+            },
+            "created": "A new Leads is created with identifier {{ param }}",
+            "updated": "A Leads is updated with identifier {{ param }}",
+            "deleted": "A Leads is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Leads {{ id }}?"
+            },
+            "detail": {
+                "title": "Leads"
+            },
+            "salutation": "Salutation",
+            "fullName": "Full Name",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "dateOfBirth": "Date Of Birth",
+            "emailAddress": "Email Address",
+            "homePhone": "Home Phone",
+            "workPhone": "Work Phone",
+            "cellPhone": "Cell Phone",
+            "gender": "Gender",
+            "type": "Type",
+            "preferredCommsMode": "Preferred Comms Mode",
+            "stage": "Stage",
+            "status": "Status",
+            "leadInterest": "Lead Interest",
+            "leadQualityScore": "Lead Quality Score",
+            "assignedTo": "Assigned To"
+        }
+    }
+}

@@ -1,0 +1,211 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-leads-heading" jhiTranslate="myApp.leads.home.createOrEditLabel">Create or edit a Leads</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!leads.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="leads.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.salutation" for="field_salutation">Salutation</label>
+                    <input type="text" class="form-control" name="salutation" id="field_salutation"
+                        [(ngModel)]="leads.salutation" required/>
+                    <div [hidden]="!(editForm.controls.salutation?.dirty && editForm.controls.salutation?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.salutation?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.fullName" for="field_fullName">Full Name</label>
+                    <input type="text" class="form-control" name="fullName" id="field_fullName"
+                        [(ngModel)]="leads.fullName" required/>
+                    <div [hidden]="!(editForm.controls.fullName?.dirty && editForm.controls.fullName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fullName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="leads.firstName" required/>
+                    <div [hidden]="!(editForm.controls.firstName?.dirty && editForm.controls.firstName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.firstName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="leads.lastName" required/>
+                    <div [hidden]="!(editForm.controls.lastName?.dirty && editForm.controls.lastName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.lastName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+                    <input type="text" class="form-control" name="dateOfBirth" id="field_dateOfBirth"
+                        [(ngModel)]="leads.dateOfBirth" required/>
+                    <div [hidden]="!(editForm.controls.dateOfBirth?.dirty && editForm.controls.dateOfBirth?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dateOfBirth?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.emailAddress" for="field_emailAddress">Email Address</label>
+                    <input type="text" class="form-control" name="emailAddress" id="field_emailAddress"
+                        [(ngModel)]="leads.emailAddress" required/>
+                    <div [hidden]="!(editForm.controls.emailAddress?.dirty && editForm.controls.emailAddress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.emailAddress?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.homePhone" for="field_homePhone">Home Phone</label>
+                    <input type="text" class="form-control" name="homePhone" id="field_homePhone"
+                        [(ngModel)]="leads.homePhone" required/>
+                    <div [hidden]="!(editForm.controls.homePhone?.dirty && editForm.controls.homePhone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.homePhone?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.workPhone" for="field_workPhone">Work Phone</label>
+                    <input type="text" class="form-control" name="workPhone" id="field_workPhone"
+                        [(ngModel)]="leads.workPhone" required/>
+                    <div [hidden]="!(editForm.controls.workPhone?.dirty && editForm.controls.workPhone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.workPhone?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.cellPhone" for="field_cellPhone">Cell Phone</label>
+                    <input type="text" class="form-control" name="cellPhone" id="field_cellPhone"
+                        [(ngModel)]="leads.cellPhone" required/>
+                    <div [hidden]="!(editForm.controls.cellPhone?.dirty && editForm.controls.cellPhone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.cellPhone?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.gender" for="field_gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="field_gender"
+                        [(ngModel)]="leads.gender" required/>
+                    <div [hidden]="!(editForm.controls.gender?.dirty && editForm.controls.gender?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.gender?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="leads.type" required/>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.preferredCommsMode" for="field_preferredCommsMode">Preferred Comms Mode</label>
+                    <input type="text" class="form-control" name="preferredCommsMode" id="field_preferredCommsMode"
+                        [(ngModel)]="leads.preferredCommsMode" required/>
+                    <div [hidden]="!(editForm.controls.preferredCommsMode?.dirty && editForm.controls.preferredCommsMode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.preferredCommsMode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.stage" for="field_stage">Stage</label>
+                    <input type="text" class="form-control" name="stage" id="field_stage"
+                        [(ngModel)]="leads.stage" required/>
+                    <div [hidden]="!(editForm.controls.stage?.dirty && editForm.controls.stage?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.stage?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="leads.status" required/>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.leadInterest" for="field_leadInterest">Lead Interest</label>
+                    <input type="text" class="form-control" name="leadInterest" id="field_leadInterest"
+                        [(ngModel)]="leads.leadInterest" required/>
+                    <div [hidden]="!(editForm.controls.leadInterest?.dirty && editForm.controls.leadInterest?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.leadInterest?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.leadQualityScore" for="field_leadQualityScore">Lead Quality Score</label>
+                    <input type="text" class="form-control" name="leadQualityScore" id="field_leadQualityScore"
+                        [(ngModel)]="leads.leadQualityScore" required/>
+                    <div [hidden]="!(editForm.controls.leadQualityScore?.dirty && editForm.controls.leadQualityScore?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.leadQualityScore?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="myApp.leads.assignedTo" for="field_assignedTo">Assigned To</label>
+                    <input type="text" class="form-control" name="assignedTo" id="field_assignedTo"
+                        [(ngModel)]="leads.assignedTo" required/>
+                    <div [hidden]="!(editForm.controls.assignedTo?.dirty && editForm.controls.assignedTo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assignedTo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

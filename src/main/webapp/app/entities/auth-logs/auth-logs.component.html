@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="myApp.auth_logs.home.title">Auth Logs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-auth-logs" [routerLink]="['/auth-logs/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="myApp.auth_logs.home.createLabel">
+            Create new Auth Logs
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="auth_logs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user_id"><span jhiTranslate="myApp.auth_logs.user_id">User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ip_address"><span jhiTranslate="myApp.auth_logs.ip_address">Ip Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="device"><span jhiTranslate="myApp.auth_logs.device">Device</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="location"><span jhiTranslate="myApp.auth_logs.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user_agent"><span jhiTranslate="myApp.auth_logs.user_agent">User Agent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="auth_type"><span jhiTranslate="myApp.auth_logs.auth_type">Auth Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="device_status"><span jhiTranslate="myApp.auth_logs.device_status">Device Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let auth_logs of auth_logs ;trackBy: trackId">
+                <td><a [routerLink]="['/auth-logs', auth_logs.id, 'view' ]">{{auth_logs.id}}</a></td>
+                <td>{{auth_logs.user_id}}</td>
+                <td>{{auth_logs.ip_address}}</td>
+                <td>{{auth_logs.device}}</td>
+                <td>{{auth_logs.location}}</td>
+                <td>{{auth_logs.user_agent}}</td>
+                <td>{{auth_logs.auth_type}}</td>
+                <td>{{auth_logs.device_status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/auth-logs', auth_logs.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/auth-logs', auth_logs.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'auth-logs/'+ auth_logs.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
